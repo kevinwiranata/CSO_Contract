@@ -75,7 +75,7 @@ func (c *CSOContract) DeleteCSOUser(ctx contractapi.TransactionContextInterface,
 // TransactEnergy retrieves an EV from the world state and updates its value
 // Important: Make sure to configure channel name
 func (c *CSOContract) TransactEnergy(ctx contractapi.TransactionContextInterface, CSOID string, EVID string, ChargerID int, PowerFlow float64, RecentMoney float64, Temperature float64, SoC float64, SoH float64) ([]byte, error) {
-	channelName := "mychannel"
+	channelName := "default-channel"
 
 	csoUser := new(CSO)
 	csoUser.CSOID = CSOID
