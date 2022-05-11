@@ -92,7 +92,7 @@ func (c *CSOContract) TransactEnergy(ctx contractapi.TransactionContextInterface
 	// Send EV Struct TX Update
 	invokeArgs := [][]byte{[]byte("UpdateEVData"), []byte(fmt.Sprint(EVID)), []byte(fmt.Sprint(CSOID)), []byte(fmt.Sprint(ChargerID)),
 		[]byte(fmt.Sprint(PowerFlow)), []byte(fmt.Sprint(RecentMoney)), []byte(fmt.Sprint(Temperature)), []byte(fmt.Sprint(SoC)), []byte(fmt.Sprint(SoH))}
-	response := ctx.GetStub().InvokeChaincode("EV", invokeArgs, channelName)
+	response := ctx.GetStub().InvokeChaincode("ev_contract", invokeArgs, channelName)
 	if response.Status != 200 {
 		return nil, fmt.Errorf("Error invoking EV Chaincode. %s", response.GetMessage())
 	}
